@@ -19,10 +19,13 @@ public class ProblemInputs {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(optional = false)
-    private Problem problem;
-
     @Column(columnDefinition = "varchar[]")
     @Type(type = "uz.pdp.customtypes.GenericStringArrayType")
-    private List<String> input;
+    private Object[] input;
+
+    @Column(nullable = false)
+    private String output;
+
+    @ManyToOne(optional = false)
+    private Problem problem;
 }
